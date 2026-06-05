@@ -1,7 +1,3 @@
-import type { Permissions } from "./permissions.js";
-import type { Relation } from "./relation.js";
-import type { Routing } from "./routing.js";
-
 export type NodeKind = "event" | "message" | "trade" | "doc" | "agent" | "identity";
 
 export interface Node {
@@ -9,14 +5,9 @@ export interface Node {
   kind: NodeKind;
 
   owner: string;
-  created_at: number;
-  updated_at: number;
+  created_at: bigint;
+  updated_at: bigint;
 
-  metadata: Record<string, unknown>;
-  content: Record<string, unknown>;
-
-  relations: Relation[];
-  routing: Routing;
-
-  permissions: Permissions;
+  data: Blob;
+  version: number;
 }

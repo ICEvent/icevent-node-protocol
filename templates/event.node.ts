@@ -1,4 +1,4 @@
-import { createBaseNode } from "./base.node.js";
+import { createBaseNode, encodeNodeData } from "./base.node.js";
 
 export function createEventNode(data: {
   title: string;
@@ -7,13 +7,10 @@ export function createEventNode(data: {
 }) {
   return createBaseNode({
     kind: "event",
-    metadata: {
-      type: "event",
-    },
-    content: {
+    data: encodeNodeData({
       title: data.title,
       location: data.location,
       time: data.time,
-    },
+    }),
   });
 }

@@ -11,6 +11,12 @@ Universal Node Protocol for ICP.
 - `sdk/`: simple Node client and query types.
 - `examples/`: minimal usage examples.
 
+## Phase 1 Canonical Model
+
+- `Node`: `id`, `kind`, `owner`, timestamps, `data: Blob`, `version`.
+- `Relation`: `from`, `to`, `kind`, `weight`.
+- `Event` stream: `node_created`, `node_updated`, `relation_added`.
+
 ## Development
 
 ```bash

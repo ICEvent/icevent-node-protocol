@@ -3,10 +3,9 @@ import { createEventNode } from "../templates/event.node.js";
 
 const root = createEventNode({ title: "Root" });
 const child = createEventNode({ title: "Child" });
-
-root.relations.push({ from: root.id, to: child.id, type: "linked_to" });
+const relation = { from: root.id, to: child.id, kind: "linked_to", weight: 1 };
 
 const graph = new GraphIndexer();
-graph.index([root, child]);
+graph.index([root, child], [relation]);
 
 console.log(graph.discover(root.id));

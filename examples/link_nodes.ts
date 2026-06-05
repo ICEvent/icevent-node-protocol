@@ -4,10 +4,11 @@ import { createMessageNode } from "../templates/message.node.js";
 const event = createEventNode({ title: "IC Event" });
 const message = createMessageNode("See you there", "participants");
 
-event.relations.push({
+const relation = {
   from: message.id,
   to: event.id,
-  type: "references",
-});
+  kind: "references",
+  weight: 1,
+};
 
-console.log({ event, message });
+console.log({ event, message, relation });

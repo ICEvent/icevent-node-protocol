@@ -1,4 +1,4 @@
-import { createBaseNode } from "./base.node.js";
+import { createBaseNode, encodeNodeData } from "./base.node.js";
 
 export function createTradeNode(data: {
   asset: string;
@@ -7,6 +7,6 @@ export function createTradeNode(data: {
 }) {
   return createBaseNode({
     kind: "trade",
-    content: data,
+    data: encodeNodeData(data),
   });
 }
