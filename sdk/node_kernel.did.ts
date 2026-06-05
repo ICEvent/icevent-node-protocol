@@ -1,26 +1,24 @@
-import { IDL } from "@dfinity/candid";
-
-export const idlFactory = ({ IDL: C }: { IDL: typeof IDL }) => {
-  const Node = C.Record({
-    id: C.Text,
-    kind: C.Text,
-    owner: C.Text,
-    created_at: C.Int,
-    updated_at: C.Int,
-    data: C.Text,
+export const idlFactory = ({ IDL }: { IDL: any }) => {
+  const Node = IDL.Record({
+    id: IDL.Text,
+    kind: IDL.Text,
+    owner: IDL.Text,
+    created_at: IDL.Int,
+    updated_at: IDL.Int,
+    data: IDL.Text,
   });
 
-  const Relation = C.Record({
-    from: C.Text,
-    to: C.Text,
-    kind: C.Text,
-    weight: C.Nat,
+  const Relation = IDL.Record({
+    from: IDL.Text,
+    to: IDL.Text,
+    kind: IDL.Text,
+    weight: IDL.Nat,
   });
 
-  return C.Service({
-    create_node: C.Func([Node], [C.Text], []),
-    get_node: C.Func([C.Text], [C.Opt(Node)], ["query"]),
-    add_relation: C.Func([Relation], [], []),
-    get_relations: C.Func([C.Text], [C.Vec(Relation)], ["query"]),
+  return IDL.Service({
+    create_node: IDL.Func([Node], [IDL.Text], []),
+    get_node: IDL.Func([IDL.Text], [IDL.Opt(Node)], ["query"]),
+    add_relation: IDL.Func([Relation], [], []),
+    get_relations: IDL.Func([IDL.Text], [IDL.Vec(Relation)], ["query"]),
   });
 };
