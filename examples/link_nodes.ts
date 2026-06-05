@@ -1,13 +1,16 @@
-import { createEventNode } from "../templates/event.node.js";
-import { createMessageNode } from "../templates/message.node.js";
+import { NodeClient } from "../sdk/client.js";
 
-const event = createEventNode({ title: "IC Event" });
-const message = createMessageNode("See you there", "participants");
+const client = new NodeClient("YOUR_CANISTER_ID");
 
-event.relations.push({
-  from: message.id,
-  to: event.id,
-  type: "references",
-});
+async function run() {
+  await client.addRelation({
+    from: "user:alice",
+    to: "event:1",
+    kind: "created",
+    weight: 1n,
+  });
 
-console.log({ event, message });
+  console.log("linked");
+}
+
+void run();

@@ -1,4 +1,4 @@
-import { createBaseNode } from "./base.node.js";
+import { createBaseNode, encodeNodeData } from "./base.node.js";
 
 export function createAgentNode(spec: {
   role: string;
@@ -6,6 +6,6 @@ export function createAgentNode(spec: {
 }) {
   return createBaseNode({
     kind: "agent",
-    content: spec,
+    data: encodeNodeData(spec),
   });
 }

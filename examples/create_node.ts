@@ -4,19 +4,16 @@ const client = new NodeClient("YOUR_CANISTER_ID");
 
 async function run() {
   const now = BigInt(Date.now());
-  const event = {
-    id: "event-1",
-    kind: "event",
+  const node = {
+    id: "node-1",
+    kind: "doc",
     owner: "alice",
     created_at: now,
     updated_at: now,
-    data: JSON.stringify({
-      title: "Norvan Falls Hiking",
-      location: "Vancouver",
-    }),
+    data: JSON.stringify({ title: "Hello ICEvent" }),
   };
 
-  const id = await client.createNode(event);
+  const id = await client.createNode(node);
   console.log("created:", id);
 }
 

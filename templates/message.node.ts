@@ -1,11 +1,11 @@
-import { createBaseNode } from "./base.node.js";
+import { createBaseNode, encodeNodeData } from "./base.node.js";
 
 export function createMessageNode(text: string, to: string) {
   return createBaseNode({
     kind: "message",
-    content: {
+    data: encodeNodeData({
       text,
       to,
-    },
+    }),
   });
 }

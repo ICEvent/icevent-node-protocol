@@ -1,0 +1,22 @@
+type Node = record {
+  id : text;
+  kind : text;
+  owner : text;
+  created_at : int;
+  updated_at : int;
+  data : text;
+};
+
+type Relation = record {
+  from : text;
+  to : text;
+  kind : text;
+  weight : nat;
+};
+
+service : {
+  create_node : (Node) -> (text);
+  get_node : (text) -> (opt Node) query;
+  add_relation : (Relation) -> ();
+  get_relations : (text) -> (vec Relation) query;
+}

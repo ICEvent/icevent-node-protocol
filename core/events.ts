@@ -1,13 +1,9 @@
-export type EventType =
-  | "NODE_CREATED"
-  | "NODE_UPDATED"
-  | "RELATION_ADDED"
-  | "TRADE_EXECUTED"
-  | "MESSAGE_SENT";
+import type { Node } from "./node.js";
+import type { Relation } from "./relation.js";
 
-export interface Event {
-  type: EventType;
-  node_id: string;
-  timestamp: number;
-  payload: unknown;
-}
+export type EventType = "node_created" | "node_updated" | "relation_added";
+
+export type Event =
+  | { type: "node_created"; node: Node; timestamp: bigint }
+  | { type: "node_updated"; node: Node; timestamp: bigint }
+  | { type: "relation_added"; relation: Relation; timestamp: bigint };

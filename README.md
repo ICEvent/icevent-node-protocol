@@ -1,15 +1,30 @@
-# icevent-node-protocol
+# ICEvent Node Protocol
 
-Universal Node Protocol for ICP.
+A decentralized information graph system on ICP.
 
-## Structure
+## Concept
 
-- `core/`: node, relation, routing, permissions, events, shared types.
-- `templates/`: factory helpers for event/message/trade/doc/agent/identity nodes.
-- `canisters/`: base in-memory canister adapter plus typed canister aliases.
-- `indexer/`: graph indexer, embedding indexer placeholder, discovery engine.
-- `sdk/`: simple Node client and query types.
-- `examples/`: minimal usage examples.
+Everything is a Node:
+- Event
+- Message
+- Trade
+- Document
+- Agent
+
+Everything is connected via Relations.
+
+## Architecture
+
+- Motoko → Truth Layer (Node Storage)
+- TypeScript → Intelligence Layer (Graph + Discovery)
+- Indexer → Search + Semantic Layer
+
+## Run Locally
+
+```bash
+dfx start --background
+dfx deploy
+```
 
 ## Development
 

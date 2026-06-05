@@ -7,6 +7,10 @@
     "build": "tsc -p tsconfig.json",
     "test": "tsx --test tests/**/*.test.ts"
   },
+  "dependencies": {
+    "@dfinity/agent": "^2.3.0",
+    "@dfinity/candid": "^2.3.0"
+  },
   "devDependencies": {
     "@types/node": "^24.0.1",
     "tsx": "^4.20.6",

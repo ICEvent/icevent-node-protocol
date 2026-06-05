@@ -1,11 +1,11 @@
-import { createBaseNode } from "./base.node.js";
+import { createBaseNode, encodeNodeData } from "./base.node.js";
 
 export function createIdentityNode(data: { principal: string; aliases?: string[] }) {
   return createBaseNode({
     kind: "identity",
-    content: {
+    data: encodeNodeData({
       principal: data.principal,
       aliases: data.aliases ?? [],
-    },
+    }),
   });
 }
